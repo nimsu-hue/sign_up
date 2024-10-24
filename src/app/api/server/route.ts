@@ -11,7 +11,7 @@ export async function POST(req: Request) {
     const result = await pool.query(query, values);
 
     return NextResponse.json({ message: 'Usuario creado exitosamente', user: result.rows[0] }, { status: 201 });
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error al crear el usuario:', error);
     return NextResponse.json({ message: 'Error al crear el usuario', error: 'Error interno' }, { status: 500 });
   }
